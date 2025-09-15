@@ -67,7 +67,7 @@ public class ServicoService {
 				buttonLabel = "Inserir";
 			} else {
 				action += "update/" + servico.getID();
-				name = "Atualizar Produto (ID " + servico.getID() + ")";
+				name = "Atualizar Serviço (ID " + servico.getID() + ")";
 				descricao = servico.getDescricao();
 				buttonLabel = "Atualizar";
 			}
@@ -80,6 +80,7 @@ public class ServicoService {
 			umServico += "\t\t\t<td colspan=\"3\" align=\"left\">&nbsp;</td>";
 			umServico += "\t\t</tr>";
 			umServico += "\t\t<tr>";
+			umServico += "\t\t\t<td>&nbsp;Nome: <input class=\"input--register\" type=\"text\" name=\"nome\" value=\""+ servico.getNome() +"\"></td>";
 			umServico += "\t\t\t<td>&nbsp;Descrição: <input class=\"input--register\" type=\"text\" name=\"descricao\" value=\""+ descricao +"\"></td>";
 			umServico += "\t\t\t<td>Preco: <input class=\"input--register\" type=\"text\" name=\"preco\" value=\""+ servico.getPreco() +"\"></td>";
 			umServico += "\t\t</tr>";
@@ -107,15 +108,15 @@ public class ServicoService {
 		} else {
 			System.out.println("ERRO! Tipo não identificado " + tipo);
 		}
-		form = form.replaceFirst("<UM-PRODUTO>", umServico);
+		form = form.replaceFirst("<UM-SERVICO>", umServico);
 		
 		String list = new String("<table width=\"80%\" align=\"center\" bgcolor=\"#f3f3f3\">");
 		list += "\n<tr><td colspan=\"6\" align=\"left\"><font size=\"+2\"><b>&nbsp;&nbsp;&nbsp;Relação de Serviços</b></font></td></tr>\n" +
 				"\n<tr><td colspan=\"6\">&nbsp;</td></tr>\n" +
     			"\n<tr>\n" + 
-        		"\t<td><a href=\"/produto/list/" + FORM_ORDERBY_ID + "\"><b>ID</b></a></td>\n" +
-        		"\t<td><a href=\"/produto/list/" + FORM_ORDERBY_DESCRICAO + "\"><b>Descrição</b></a></td>\n" +
-        		"\t<td><a href=\"/produto/list/" + FORM_ORDERBY_PRECO + "\"><b>Preço</b></a></td>\n" +
+        		"\t<td><a href=\"/servico/list/" + FORM_ORDERBY_ID + "\"><b>ID</b></a></td>\n" +
+        		"\t<td><a href=\"/servico/list/" + FORM_ORDERBY_DESCRICAO + "\"><b>Descrição</b></a></td>\n" +
+        		"\t<td><a href=\"/servico/list/" + FORM_ORDERBY_PRECO + "\"><b>Preço</b></a></td>\n" +
         		"\t<td width=\"100\" align=\"center\"><b>Detalhar</b></td>\n" +
         		"\t<td width=\"100\" align=\"center\"><b>Atualizar</b></td>\n" +
         		"\t<td width=\"100\" align=\"center\"><b>Excluir</b></td>\n" +
@@ -162,7 +163,7 @@ public class ServicoService {
             resp = "Serviço (" + nome + ") inserido!";
             response.status(201); // 201 Created
 		} else {
-			resp = "Produto (" + nome + ") não inserido!";
+			resp = " (" + nome + ") não inserido!";
 			response.status(404); // 404 Not found
 		}
 			
@@ -198,7 +199,7 @@ public class ServicoService {
 			makeForm(FORM_UPDATE, servico, FORM_ORDERBY_DESCRICAO);
         } else {
             response.status(404); // 404 Not found
-            String resp = "Produto " + id + " não encontrado.";
+            String resp = "Serviço " + id + " não encontrado.";
     		makeForm();
     		form.replaceFirst("<input type=\"hidden\" id=\"msg\" name=\"msg\" value=\"\">", "<input type=\"hidden\" id=\"msg\" name=\"msg\" value=\""+ resp +"\">");     
         }
