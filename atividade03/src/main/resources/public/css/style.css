@@ -1,0 +1,56 @@
+/* public/css/style.css - estilos custom */
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background-color: #ffffff;
+  padding: 20px;
+  color: #222;
+}
+
+.container-main {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.header-title {
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.form--card {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 18px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.03);
+}
+
+.tabela-servicos {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+}
+
+.tabela-servicos th,
+.tabela-servicos td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+}
+
+.tabela-servicos thead th {
+  background: #f1f1f1;
+  text-align: left;
+}
+
+.tabela-servicos tbody tr:nth-child(even) { background: #fff5dd; }
+.tabela-servicos tbody tr:nth-child(odd)  { background: #efefef; }
+
+.icon-btn img { width: 20px; height: 20px; display: inline-block; }
+
+.btn-main {
+  background-color: rgb(0, 128, 255);
+  color: #fff;
+  border: none;
+}
+
+.small-col { width: 75px; text-align: center; }
